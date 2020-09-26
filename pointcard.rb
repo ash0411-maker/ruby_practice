@@ -1,3 +1,4 @@
+#自分の回答
 def is_isogram(string)
     string = string.downcase.chars
     if string == string.uniq
