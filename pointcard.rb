@@ -1,11 +1,10 @@
 #自分の回答
-def is_isogram(string)
-    string = string.downcase.chars
-    if string == string.uniq
-      return true
-    else
-      return false
-    end
+def unique_in_order(iterable)
+  if iterable.class == String
+    iterable.squeeze.chars
+  else
+    iterable.uniq
+  end
 end
 
 
