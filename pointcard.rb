@@ -8,6 +8,7 @@ def unique_in_order(iterable)
 end
 
 
+
 #理想の回答方法
 def unique_in_order(iterable)
   case iterable
