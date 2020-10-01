@@ -1,23 +1,29 @@
 #自分の回答
-def iq_test(numbers)
-  numbers = numbers.split().map{|num| num.to_i}
-  even_count = numbers.select {|num| num.even?}.count
-  odd_count = numbers.select {|num| num.odd?}.count
-
-  numbers.each_with_index do |num, i|
-    if even_count > odd_count
-      return i + 1 if num.odd?
-    else
-      return i + 1 if num.even?
+def solution(number)
+  i = 1
+  nums_array = []
+  number -= 1
+  number.times do
+    nums_array << i
+    i += 1
+  end
+ 
+  sum = 0
+  nums_array.each do |num|
+    if num % 3 == 0 && num % 5 == 0
+      sum += num
+    elsif num % 3 == 0
+      sum += num
+    elsif num % 5 == 0
+      sum += num
     end
   end
+  sum
+ end
+
+ def solution(number)
+  (1...number).select {|i| i%3==0 || i%5==0}.inject(:+)
 end
 
 
-def iq_test(numbers)
-  nums = numbers.split.map(&:to_i).map(&:even?)
-  nums.count(true) > 1 ? nums.index(false) + 1 : nums.index(true) + 1
-end
-
-
-# https://qiita.com/ashketcham/items/d4c73bf52f666b4dd416
+# https://qiita.com/ashketcham/items/2a9b122ecba38ea7541d
