@@ -1,33 +1,30 @@
 #自分の回答
-def likes(names)
-  return "no one likes this" if names.empty?
-
-  if names.count == 1
-    "#{names[0]} likes this"
-  elsif names.count == 2
-    names.each { |n| }.join(" and ") << " like this"
-  elsif names.count == 3
-    "#{names[0]}, #{names[1]} and #{names[2]} like this"
-  else
-　　　others_count = names.count -2
-    "#{names[0]}, #{names[1]} and #{others_count} others like this"   
+def solution(number)
+  i = 1
+  nums_array = []
+  number -= 1
+  number.times do
+    nums_array << i
+    i += 1
   end
+ 
+  sum = 0
+  nums_array.each do |num|
+    if num % 3 == 0 && num % 5 == 0
+      sum += num
+    elsif num % 3 == 0
+      sum += num
+    elsif num % 5 == 0
+      sum += num
+    end
+  end
+  sum
+ end
+
+ def solution(number)
+  (1...number).select {|i| i%3==0 || i%5==0}.inject(:+)
 end
 
 
+# https://qiita.com/ashketcham/items/2a9b122ecba38ea7541d
 
-#理想の回答方法
-def likes(names)
-  case names.size
-  when 0 
-    "no one likes this"
-  when 1 
-    "#{names[0]} likes this"
-  when 2
-    "#{names[0]} and #{names[1]} like this"
-  when 3
-    "#{names[0]}, #{names[1]} and #{names[2]} like this"
-  else
-    "#{names[0]}, #{names[1]} and #{names.size - 2} others like this"
-  end
-end
